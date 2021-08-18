@@ -23,9 +23,7 @@ namespace SceneLoader
         #region event observer
         private void ActionOnEndScene(object sender, SceneLoader.EventSystem.OnEndSceneEventArgs args)
         {
-            Debug.Log(Time.timeScale);
             Time.timeScale = _endTimeScale;
-            Debug.Log(Time.timeScale);
             _transition.GetComponent<SceneLoader.AnimationEventObserver>()._sceneNumber = args._sceneNumber;
             _transition.GetComponent<Animator>().SetTrigger(_triggerText);
         }
