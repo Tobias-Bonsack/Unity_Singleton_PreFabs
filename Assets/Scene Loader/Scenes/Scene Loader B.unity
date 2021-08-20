@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 473867128, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073483360, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5944765508077310960, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
       propertyPath: m_Name
       value: Scene Loader
@@ -178,6 +186,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5944765508077310974, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
+      propertyPath: _transition
+      value: 
+      objectReference: {fileID: 11635884}
+    - target: {fileID: 5944765508566599620, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
 --- !u!114 &11635883 stripped
@@ -191,6 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35d76559d90d2247b9ed5f34d7e30a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &11635884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1073483360, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
+  m_PrefabInstance: {fileID: 11635882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &29352108
 GameObject:
   m_ObjectHideFlags: 0

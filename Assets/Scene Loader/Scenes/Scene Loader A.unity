@@ -514,7 +514,7 @@ Animator:
   m_GameObject: {fileID: 1072319636}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9cd076720da69e84190e70f22669e72f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7c8bc55dc0f79f544ae46435a2f97c9f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -901,10 +901,6 @@ PrefabInstance:
     - target: {fileID: 5944765508077310960, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
       propertyPath: m_Name
       value: Scene Loader
-      objectReference: {fileID: 0}
-    - target: {fileID: 5944765508077310960, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5944765508077310961, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
       propertyPath: m_RootOrder
