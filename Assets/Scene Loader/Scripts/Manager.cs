@@ -9,7 +9,7 @@ namespace SceneLoader
     {
         [SerializeField] SceneLoader.EventSystem _eventS;
 
-        [Header("Transition")]
+        [Header("Transition-Objects")]
         [SerializeField] GameObject _transition;
         [SerializeField] string _triggerText;
         [SerializeField] float _startTimeScale = 1f, _endTimeScale = 0f;
