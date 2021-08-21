@@ -11,6 +11,7 @@ namespace SceneLoader
     {
         [SerializeField] SceneLoader.EventSystem _eventS;
         [SerializeField] Image _loadBar;
+        [SerializeField] float _WaitAfterLoaded = 1f;
         public int _sceneNumber;
         public void EndObserver()
         {
@@ -20,13 +21,17 @@ namespace SceneLoader
         private IEnumerator LoadAsyncScene()
         {
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(_sceneNumber);
+            asyncOperation.allowSceneActivation = false;
 
-            while (asyncOperation.progress < 1f)
+            while (asyncOperation.progress < 0.9f)
             {
                 Debug.Log(asyncOperation.progress);
-                _loadBar.fillAmount = asyncOperation.progress;
                 yield return new WaitForEndOfFrame();
             }
+            _loadBar.fillAmount = asyncOperation.progress;
+
+            yield return new WaitForSecondsRealtime(_WaitAfterLoaded);
+            asyncOperation.allowSceneActivation = true;
 
         }
 

@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventS: {fileID: 5944765508077310975}
   _loadBar: {fileID: 1892181907}
+  _WaitAfterLoaded: 1
   _sceneNumber: 0
 --- !u!95 &1073483365
 Animator:
@@ -534,6 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventS: {fileID: 5944765508077310975}
   _loadBar: {fileID: 4526060800153846200}
+  _WaitAfterLoaded: 1
   _sceneNumber: 0
 --- !u!1 &5004978640764757717
 GameObject:
@@ -840,6 +842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventS: {fileID: 5944765508077310975}
   _loadBar: {fileID: 1270771718578294990}
+  _WaitAfterLoaded: 1
   _sceneNumber: 0
 --- !u!1 &5944765509158752554
 GameObject:
