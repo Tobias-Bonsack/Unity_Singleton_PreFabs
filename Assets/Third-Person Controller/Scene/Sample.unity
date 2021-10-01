@@ -201,8 +201,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195036518}
-  m_LocalRotation: {x: 0.123344, y: 0.000000017600788, z: -0.0000000021875242, w: 0.992364}
-  m_LocalPosition: {x: 0, y: 3.35, z: -8.06}
+  m_LocalRotation: {x: 0.123344, y: -0.000000017600788, z: 0.0000000021875242, w: 0.992364}
+  m_LocalPosition: {x: 0, y: 4.35, z: -8.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 572131239}
   - component: {fileID: 572131238}
   m_Layer: 0
-  m_Name: Player Manager
+  m_Name: Input Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,6 +601,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 74b8f4fa-377b-481b-a945-e022753fa640
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 572131239}
+        m_TargetAssemblyTypeName: ThirdPersonController.InputManager, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1cfc2db1-7367-45ea-9e73-4c66e41aae80
+    m_ActionName: Player/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -618,10 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5189b3bdc9f7a047a66b0e5d7dcc07e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1831199110}
-  _camera: {fileID: 195036521}
-  _speed: 1
-  _turnSpeed: 0.1
+  _player: {fileID: 1831199113}
 --- !u!4 &572131240
 Transform:
   m_ObjectHideFlags: 0
@@ -629,8 +642,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572131237}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.814978, y: -1.2691665, z: -0.2505914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1831199111}
@@ -848,7 +861,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922811661}
-  m_LocalRotation: {x: 0.12334399, y: 0.000000017600499, z: -0.00000000218762, w: 0.992364}
+  m_LocalRotation: {x: 0.12334399, y: -0.000000017600499, z: 0.00000000218762, w: 0.992364}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1131,6 +1144,7 @@ GameObject:
   - component: {fileID: 1154844857}
   - component: {fileID: 1154844858}
   - component: {fileID: 1154844859}
+  - component: {fileID: 1154844860}
   m_Layer: 0
   m_Name: Third Person Camera
   m_TagString: Untagged
@@ -1268,6 +1282,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f78ccb4dc5b29e4292a553318a0d323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1154844860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154844856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: 
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 1
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
 --- !u!1 &1176830648
 GameObject:
   m_ObjectHideFlags: 3
@@ -1418,7 +1462,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198889845}
-  m_LocalRotation: {x: 0.10532076, y: -0.00000001763729, z: 0.0000000018679613, w: 0.99443835}
+  m_LocalRotation: {x: 0.10532076, y: 0.00000001763729, z: -0.0000000018679613, w: 0.99443835}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1647,6 +1691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831199111}
   - component: {fileID: 1831199112}
+  - component: {fileID: 1831199113}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1662,7 +1707,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831199110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 259054811}
@@ -1689,3 +1734,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1831199113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831199110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55fefa4821cd8aa468553deeb67f55f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 195036521}
+  _jumpPower: 5
+  _isMoving: 0
+  _direction: {x: 0, y: 0, z: 0}
+  _speed: 2
+  _turnTime: 0.5
