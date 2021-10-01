@@ -201,7 +201,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195036518}
-  m_LocalRotation: {x: 0.123344, y: 0.000000017600797, z: -0.000000002187583, w: 0.992364}
+  m_LocalRotation: {x: 0.123344, y: 0.000000017600788, z: -0.0000000021875242, w: 0.992364}
   m_LocalPosition: {x: 0, y: 3.35, z: -8.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 717062e730ae1ac4caa79fa35fbb503a, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -524,7 +524,71 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 88e713bf-2d45-49a3-b5ec-c4ad52227eac
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1154844859}
+        m_TargetAssemblyTypeName: ThirdPersonController.FreeLookAddOn, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 29e104de-daea-45a4-afd0-ec2a501620bd
+    m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aeec24f9-164c-4f08-899c-996c4b900da2
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 32d52007-33a5-4c0f-a240-8588f3f11c21
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 87b2943e-05bd-46f5-9b40-467ab7226ea1
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 26c3a93e-f4a6-440f-b9ee-7c656fd2fa12
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f7b44bb5-fe17-4ead-bcf6-230f7bd72dc6
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5f50f2d3-2da5-434c-8b92-186e4f3a37bb
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fa0ba091-be48-4228-91f2-6e4fa7cb2b13
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 560afab1-981d-47fc-a7d2-54214a01888b
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b28d4eab-24c6-4c64-b714-878571750cf9
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cbb41e1f-034e-4498-a2f4-a13ebe9ac224
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 74b8f4fa-377b-481b-a945-e022753fa640
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1050,6 +1114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1154844857}
   - component: {fileID: 1154844858}
+  - component: {fileID: 1154844859}
   m_Layer: 0
   m_Name: Third Person Camera
   m_TagString: Untagged
@@ -1175,6 +1240,20 @@ MonoBehaviour:
   - {fileID: 1576375446}
   - {fileID: 922811663}
   - {fileID: 1198889847}
+--- !u!114 &1154844859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154844856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f78ccb4dc5b29e4292a553318a0d323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LookSpeed: 1
+  InvertY: 0
 --- !u!1 &1176830648
 GameObject:
   m_ObjectHideFlags: 3
@@ -1325,7 +1404,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198889845}
-  m_LocalRotation: {x: 0.10532076, y: 0.000000017637287, z: -0.000000001867961, w: 0.99443835}
+  m_LocalRotation: {x: 0.10532076, y: -0.00000001763729, z: 0.0000000018679613, w: 0.99443835}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1399,7 +1478,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576375444}
-  m_LocalRotation: {x: 0.14137417, y: 0.000000008516782, z: -0.0000000012162689, w: 0.98995626}
+  m_LocalRotation: {x: 0.14137419, y: -0.000000008516782, z: 0.0000000012162689, w: 0.98995626}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
