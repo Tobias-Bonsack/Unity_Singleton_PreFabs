@@ -23,10 +23,9 @@ namespace ThirdPersonController
         }
         public void OnJump(InputAction.CallbackContext context)
         {
-            Debug.Log(context);
             if (context.started)
             {
-                //TODO implement jump logik
+                _player.Jump();
             }
         }
     }
