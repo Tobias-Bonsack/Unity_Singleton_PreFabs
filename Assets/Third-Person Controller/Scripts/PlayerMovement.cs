@@ -42,20 +42,6 @@ namespace ThirdPersonController
             _controller.Move(_velocity * Time.deltaTime);
 
         }
-
-        private void CalculateResistance()
-        {
-            float brakeXPower = Mathf.Abs(_velocity.x) / _speed;
-            float brakeZPower = Mathf.Abs(_velocity.z) / _speed;
-
-            Vector3 brakeForce = new Vector3(0f, 0f, 0f);
-            brakeForce.x = _MoveResistance * brakeXPower * (_velocity.x > 0f ? -1 : 1);
-            brakeForce.z = _MoveResistance * brakeZPower * (_velocity.z > 0f ? -1 : 1);
-
-            Debug.Log(brakeForce);
-            AddForce(brakeForce, false);
-        }
-
         private void CalculateMovement()
         {
             if (_isMoving && _controller.isGrounded)
@@ -70,6 +56,17 @@ namespace ThirdPersonController
                 _velocity.x = Mathf.Clamp(_velocity.x, -_speed, _speed);
                 _velocity.z = Mathf.Clamp(_velocity.z, -_speed, _speed);
             }
+        }
+        private void CalculateResistance()
+        {
+            float brakeXPower = Mathf.Abs(_velocity.x) / _speed;
+            float brakeZPower = Mathf.Abs(_velocity.z) / _speed;
+
+            Vector3 brakeForce = new Vector3(0f, 0f, 0f);
+            brakeForce.x = _MoveResistance * brakeXPower * (_velocity.x > 0f ? -1 : 1);
+            brakeForce.z = _MoveResistance * brakeZPower * (_velocity.z > 0f ? -1 : 1);
+
+            AddForce(brakeForce, false);
         }
         private void CalculateGravity()
         {
