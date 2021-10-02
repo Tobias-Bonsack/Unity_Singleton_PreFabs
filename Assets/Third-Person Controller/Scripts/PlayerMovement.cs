@@ -13,19 +13,22 @@ namespace ThirdPersonController
 
         [Header("Jump")]
         [SerializeField] float _jumpHeight;
+        [SerializeField] float _jumpResistanceMultiplikator;
 
         [Header("Move")]
         public bool _isMoving = false;
-        public Vector3 _direction;
-        public float _MoveResistance;
-        [SerializeField] float _speed;
+        public Vector3 _direction = Vector3.zero;
+        [SerializeField] float _moveResistance;
+        [SerializeField] float _basicSpeedResistance;
+        [SerializeField] float _maxSpeed;
+        [SerializeField] float _acceleration;
         [SerializeField] float _turnTime;
         private float _turnSmoothVelocity;
         private Vector3 _moveDir;
 
         [Header("Gravity")]
         private float _gravity = -9.81f;
-        private Vector3 _velocity = new Vector3(0f, 0f, 0f);
+        private Vector3 _velocity = Vector3.zero;
         private float _basicDown = -1f;
 
         void Awake()
@@ -39,6 +42,8 @@ namespace ThirdPersonController
             CalculateResistance();
             CalculateGravity();
 
+            //TODO here place for extern forces
+
             _controller.Move(_velocity * Time.deltaTime);
 
         }
@@ -51,36 +56,44 @@ namespace ThirdPersonController
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
                 _moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                AddForce(_moveDir * _speed * Time.deltaTime, false);
+                AddForce(_moveDir * _acceleration * Time.deltaTime, false);
 
-                _velocity.x = Mathf.Clamp(_velocity.x, -_speed, _speed);
-                _velocity.z = Mathf.Clamp(_velocity.z, -_speed, _speed);
+                _velocity.x = Mathf.Clamp(_velocity.x, -_maxSpeed, _maxSpeed);
+                _velocity.z = Mathf.Clamp(_velocity.z, -_maxSpeed, _maxSpeed);
             }
         }
         private void CalculateResistance()
         {
-            float brakeXPower = Mathf.Abs(_velocity.x) / _speed;
-            float brakeZPower = Mathf.Abs(_velocity.z) / _speed;
+            float absVelocityX = Mathf.Abs(_velocity.x);
+            float absVelocityZ = Mathf.Abs(_velocity.z);
 
-            Vector3 brakeForce = new Vector3(0f, 0f, 0f);
-            brakeForce.x = _MoveResistance * brakeXPower * (_velocity.x > 0f ? -1 : 1);
-            brakeForce.z = _MoveResistance * brakeZPower * (_velocity.z > 0f ? -1 : 1);
+            float brakeXPercent = absVelocityX / _maxSpeed;
+            float brakeZPercent = absVelocityZ / _maxSpeed;
+
+            Vector3 brakeForce = Vector3.zero;
+
+            // resistance * overall percent * opposite direction
+            brakeForce.x = _moveResistance * brakeXPercent * OppositeSign(_velocity.x) * (_isMoving ? _jumpResistanceMultiplikator : 1f);
+            brakeForce.z = _moveResistance * brakeZPercent * OppositeSign(_velocity.z) * (_isMoving ? _jumpResistanceMultiplikator : 1f);
+
+            if (!_isMoving)
+            {
+                if (absVelocityX < _basicSpeedResistance && absVelocityX != 0f)
+                {
+                    brakeForce.x = -_velocity.x;
+                }
+                if (absVelocityZ < _basicSpeedResistance && absVelocityZ != 0f)
+                {
+                    brakeForce.z = -_velocity.z;
+                }
+            }
 
             AddForce(brakeForce, false);
         }
         private void CalculateGravity()
         {
-            if (!_controller.isGrounded)
-            {
-                _velocity.y += _gravity * Time.deltaTime;
-            }
-            else
-            {
-                if (_velocity.y < _basicDown)
-                {
-                    _velocity.y = _basicDown;
-                }
-            }
+            if (!_controller.isGrounded) { _velocity.y += _gravity * Time.deltaTime; }
+            else if (_velocity.y < _basicDown) { _velocity.y = _basicDown; }
         }
 
 
@@ -93,8 +106,11 @@ namespace ThirdPersonController
             }
         }
 
+        //TODO check if public is needed at any time
         public void AddForce(Vector3 force, bool reset) => _velocity = reset ? force : force + _velocity;
 
+        private int OppositeSign(float number) => number > 0f ? -1 : 1;
+        //TODO maybe delete later, dont know if needed at any time
         private bool SameSign(float num1, float num2) => Mathf.Sign(num1) == Mathf.Sign(num2);
     }
 }
