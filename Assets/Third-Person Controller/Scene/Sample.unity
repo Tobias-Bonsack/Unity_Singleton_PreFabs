@@ -5500,32 +5500,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4579887127074717117, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
-      propertyPath: _maxSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4579887127074717117, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
       propertyPath: _mainCamera
       value: 
       objectReference: {fileID: 195036521}
-    - target: {fileID: 4579887127074717117, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
-      propertyPath: _acceleration
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4579887127074717117, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
-      propertyPath: _moveResistance
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4579887127074717117, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
-      propertyPath: _basicResistance
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4579887127074717117, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
-      propertyPath: _basicSpeedResistance
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4579887127074717117, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
-      propertyPath: _jumpResistanceMultiplikator
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}

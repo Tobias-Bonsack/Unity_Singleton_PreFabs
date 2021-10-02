@@ -520,10 +520,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 0}
   _jumpHeight: 8
+  _jumpResistanceMultiplikator: 0.2
   _isMoving: 0
   _direction: {x: 0, y: 0, z: 0}
-  _MoveResistance: 0.5
-  _speed: 10
+  _moveResistance: 0.8
+  _basicSpeedResistance: 0.75
+  _maxSpeed: 10
+  _acceleration: 15
   _turnTime: 0.5
 --- !u!1 &4579887127650173155
 GameObject:
